@@ -1,6 +1,6 @@
 <launch>
     <arg name="use_rviz" default="false"/>
-    <arg name="lidar_type" value="X3" doc="lidar_type type [a1,a2,a3,s1,s2]"/>
+    <arg name="lidar_type" value="x3" doc="lidar_type type [a1,a2,a3,s1,s2]"/>
     <group if="$(eval arg('lidar_type') == 's2')" >
         <node name="scan_dilute" pkg="yahboomcar_nav" type="scan_dilute.py" output="screen" respawn="true"/>
         <include file="$(find yahboomcar_nav)/launch/library/gmapping.launch">

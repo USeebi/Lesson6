@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="tarkbot2">
+  <link name="base_footprint">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+    <link name="imu_link"/>
+    <link name="chassis">
+        <inertial>
+            <origin xyz="-0.0016874511908933395 3.080727561398922e-05 0.05947042251166073" rpy="0.0 0.0 0.0" />
+            <mass value="2.5333273945875128" />
+            <inertia ixx="0.010218624186433217" iyy="0.009735989475531948" izz="0.015118264710850452" ixy="-2.5094885011767804e-06" iyz="1.2109285648671322e-06" ixz="0.00018352950058293297" />
+        </inertial>
+        <visual name="chassis_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/chassis.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="chassis_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/chassis.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="base_joint" type="fixed">
+      <origin rpy="0 0 0" xyz="0 0 0.033"/>
+      <parent link="base_footprint"/>
+      <child link="chassis"/>
+    </joint>
+      <joint name="base_imu" type="fixed">
+        <parent link="chassis"/>
+        <child link="imu_link"/>
+        <origin xyz="0.085 -0.01 0.112" rpy="0 0 1.5707"/>
+    </joint>
+    <link name="wheels">
+        <inertial>
+            <origin xyz="-3.4389468902081997e-09 2.531308496145357e-16 0.0042893362170877405" rpy="0.0 -0.0 0.0" />
+            <mass value="0.6626439483992117" />
+            <inertia ixx="0.00036092283728966605" iyy="0.00036092283728960707" izz="0.0006200325820258544" ixy="-7.710666650309004e-18" iyz="-1.734723475976807e-18" ixz="-4.349805351726451e-18" />
+        </inertial>
+        <visual name="wheels_visual">
+            <origin xyz="-0.02050000343894688 0.11219999999999956 0.1022000008123653" rpy="1.570796326794902 1.1153504317111211e-15 1.804112415015857e-16" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/wheels.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="wheels_collision">
+            <origin xyz="-0.02050000343894688 0.11219999999999956 0.1022000008123653" rpy="1.570796326794902 1.1153504317111211e-15 1.804112415015857e-16" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/wheels.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="wheels2">
+        <inertial>
+            <origin xyz="-3.438946673244437e-09 7.815970093361102e-16 0.004289334592358394" rpy="0.0 -0.0 0.0" />
+            <mass value="0.6626439483992121" />
+            <inertia ixx="0.00036092283728968166" iyy="0.00036092283728960447" izz="0.0006200325820258656" ixy="6.589678101622041e-18" iyz="4.336808689942016e-19" ixz="-2.928047314870307e-18" />
+        </inertial>
+        <visual name="wheels2_visual">
+            <origin xyz="-0.027500003438946947 -0.1121999999999997 0.10219999918763488" rpy="-1.5707963267948963 1.5707963267948915 0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/wheels2.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="wheels2_collision">
+            <origin xyz="-0.027500003438946947 -0.1121999999999997 0.10219999918763488" rpy="-1.5707963267948963 1.5707963267948915 0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/wheels2.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="smallwheel">
+        <inertial>
+            <origin xyz="-4.63797894312279e-09 -4.25746971011165e-10 0.006499995134924852" rpy="0.0 -0.0 0.0" />
+            <mass value="0.046557369382854395" />
+            <inertia ixx="2.4072444948860145e-06" iyy="2.407244495215529e-06" izz="3.593472016872397e-06" ixy="6.776263578034402e-20" iyz="2.0012228358693113e-18" ixz="5.754460660814728e-20" />
+        </inertial>
+        <visual name="smallwheel_visual">
+            <origin xyz="-0.09340858911638675 0.047897157881605076 0.06194578600659297" rpy="1.5707963267948968 -1.570796326794893 0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/smallwheel.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="smallwheel_collision">
+            <origin xyz="-0.09340858911638675 0.047897157881605076 0.06194578600659297" rpy="1.5707963267948968 -1.570796326794893 0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/smallwheel.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="smallwheel2">
+        <inertial>
+            <origin xyz="-4.637977770727275e-09 -4.257463093182423e-10 0.006499995134924852" rpy="0.0 -0.0 0.0" />
+            <mass value="0.046557369382854506" />
+            <inertia ixx="2.4072444948845458e-06" iyy="2.4072444952141466e-06" izz="3.593472016871096e-06" ixy="1.084202172485505e-19" iyz="2.3402198292916125e-18" ixz="2.714198884171521e-19" />
+        </inertial>
+        <visual name="smallwheel2_visual">
+            <origin xyz="0.0705914108836131 -0.05489715873310987 -0.0855302619838002" rpy="1.5707963267948966 -1.5707963267948937 0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/smallwheel2.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="smallwheel2_collision">
+            <origin xyz="0.0705914108836131 -0.05489715873310987 -0.0855302619838002" rpy="1.5707963267948966 -1.5707963267948937 0" />
+            <geometry>
+                <mesh filename="package://yahboomcar_description/meshes/smallwheel2.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <joint name="chassis_rotate1" type="continuous">
+        <origin xyz="3.4389469396667922e-09 -0.10220000081236451 0.03700000000000028" rpy="-1.570796326794902 -1.8041124150157911e-16 1.1657341758564134e-15" />
+        <parent link="chassis" />
+        <child link="wheels" />
+        <axis xyz="-1.905261713011645e-32 -7.888609052210118e-31 1.0" />
+    </joint>
+    <joint name="chassis_rotate2" type="continuous">
+        <origin xyz="3.438946698554053e-09 0.10219999918763517 0.036999999999999145" rpy="1.570796326794891 -1.8041124150157911e-16 1.1657341758564134e-15" />
+        <parent link="chassis" />
+        <child link="wheels2" />
+        <axis xyz="1.905261713011645e-32 -7.888609052210118e-31 1.0" />
+    </joint>
+    <joint name="chassis_rotate3" type="continuous">
+        <origin xyz="0.10010041343894685 -0.006308170812364686 0.01249999999999981" rpy="-1.5707963267949023 -1.8041124150157911e-16 1.1657341758564134e-15" />
+        <parent link="chassis" />
+        <child link="smallwheel" />
+        <axis xyz="-1.905261713011645e-32 -1.1020654385558886e-16 1.0" />
+    </joint>
+    <joint name="chassis_rotate4" type="continuous">
+        <origin xyz="-0.06389958656105318 -0.006308170812364878 0.01249999999999978" rpy="-1.570796326794902 -1.8041124150157911e-16 1.1657341758564134e-15" />
+        <parent link="chassis" />
+        <child link="smallwheel2" />
+        <axis xyz="-1.905261713011645e-32 1.3400768461157315e-16 1.0" />
+    </joint>
+</robot>
